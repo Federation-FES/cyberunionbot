@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Cyber Union logo">
+  <defs>
+    <linearGradient id="wingBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1c8dff"/>
+      <stop offset="1" stop-color="#0040ff"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="none" stroke-width="0">
+    <path fill="url(#wingBlue)" d="M88 372c-10-66 16-133 80-186-4 28-4 52 12 77-21-7-36-6-58 11 14 31 24 60 18 98-18-7-36-21-52-40z"/>
+    <path fill="url(#wingBlue)" d="M424 372c10-66-16-133-80-186 4 28 4 52-12 77 21-7 36-6 58 11-14 31-24 60-18 98 18-7 36-21 52-40z"/>
+    <path fill="#ffffff" d="M256 112c-46 44-63 92-48 138 8 26 25 47 48 64 23-17 40-38 48-64 15-46-2-94-48-138z"/>
+    <path fill="#ffffff" d="M240 322c-12 28-10 56 0 82-40-20-70-57-76-108 26-14 53-11 76 26z"/>
+    <path fill="#ffffff" d="M272 322c12 28 10 56 0 82 40-20 70-57 76-108-26-14-53-11-76 26z"/>
+    <path fill="#ffffff" d="M244 218c4-22 20-39 44-46-14 12-18 34-10 51 4 8-10 27-22 30-12-7-18-21-12-35z"/>
+  </g>
+</svg>

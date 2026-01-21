@@ -42,23 +42,26 @@ export function CustomHoursInput({
     <button
       onClick={onSelect}
       className={cn(
-        "w-full p-4 rounded-xl border transition-all duration-300 text-left",
+        "w-full p-3 rounded-xl border transition-all duration-300 text-left",
         "bg-gradient-to-br from-card to-muted/50",
         isSelected 
-          ? "border-secondary neon-glow" 
-          : "border-border/50 hover:border-secondary/50"
+          ? "border-primary neon-glow" 
+          : "border-border/50 hover:border-primary/50"
       )}
     >
-      <div className="flex items-center gap-2 mb-3">
-        <div className="w-8 h-8 rounded-lg bg-secondary/20 flex items-center justify-center">
-          <Clock className="w-4 h-4 text-secondary" />
+      <div className="flex items-start justify-between gap-4 mb-2">
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 rounded-lg bg-primary/15 flex items-center justify-center">
+            <Clock className="w-4 h-4 text-primary" />
+          </div>
+          <h3 className="font-bold text-lg">Выберите количество часов</h3>
         </div>
-        <h3 className="font-bold text-lg">Свой вариант</h3>
-      </div>
 
-      <p className="text-sm text-muted-foreground mb-4">
-        Выберите количество часов
-      </p>
+        <div className="text-right">
+          <span className="price-tag">{formatPrice(totalPrice)}</span>
+          <p className="text-xs text-muted-foreground">{formatPrice(hourlyRate)}/час</p>
+        </div>
+      </div>
 
       <div className="flex items-center justify-between gap-4">
         <div className="flex items-center gap-3">
@@ -67,13 +70,13 @@ export function CustomHoursInput({
             size="icon"
             onClick={handleDecrement}
             disabled={hours <= minHours}
-            className="h-10 w-10 rounded-full border-border/50 hover:border-secondary hover:bg-secondary/10"
+            className="h-10 w-10 rounded-full border-border/50 hover:border-primary hover:bg-primary/10 group"
           >
-            <Minus className="w-4 h-4" />
+            <Minus className="w-4 h-4 text-foreground group-hover:text-primary transition-colors" />
           </Button>
 
           <div className="w-16 text-center">
-            <span className="text-3xl font-bold text-secondary">{hours}</span>
+            <span className="text-3xl font-bold text-primary">{hours}</span>
             <span className="text-sm text-muted-foreground ml-1">
               {hours === 1 ? 'час' : hours < 5 ? 'часа' : 'часов'}
             </span>
@@ -84,16 +87,12 @@ export function CustomHoursInput({
             size="icon"
             onClick={handleIncrement}
             disabled={hours >= maxHours}
-            className="h-10 w-10 rounded-full border-border/50 hover:border-secondary hover:bg-secondary/10"
+            className="h-10 w-10 rounded-full border-border/50 hover:border-primary hover:bg-primary/10 group"
           >
-            <Plus className="w-4 h-4" />
+            <Plus className="w-4 h-4 text-foreground group-hover:text-primary transition-colors" />
           </Button>
         </div>
 
-        <div className="text-right">
-          <span className="price-tag">{formatPrice(totalPrice)}</span>
-          <p className="text-xs text-muted-foreground">{formatPrice(hourlyRate)}/час</p>
-        </div>
       </div>
     </button>
   );

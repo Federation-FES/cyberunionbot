@@ -18,8 +18,8 @@ export function PaymentPending({ amount, paymentUrl, onCancel }: PaymentPendingP
 
   return (
     <div className="gaming-card p-6 text-center animate-fade-in">
-      <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-secondary to-accent flex items-center justify-center">
-        <CreditCard className="w-8 h-8 text-secondary-foreground" />
+      <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary to-[hsl(200_100%_60%)] flex items-center justify-center shadow-[0_0_20px_rgba(35,35,255,0.35)]">
+        <CreditCard className="w-8 h-8 text-primary-foreground" />
       </div>
 
       <h2 className="text-xl font-bold mb-2">Оплата через СБП</h2>

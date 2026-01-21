@@ -28,21 +28,14 @@ export function TariffCard({
     <button
       onClick={onClick}
       className={cn(
-        "w-full p-4 rounded-xl border transition-all duration-300 text-left",
+        "w-full p-3 rounded-xl border transition-all duration-300 text-left",
         "bg-card hover:border-primary/50",
-        isSelected 
-          ? "border-primary neon-glow" 
+        isSelected
+          ? "border-primary neon-glow"
           : "border-border/50 hover:bg-card/80",
-        isPackage && "relative overflow-hidden"
+        isPackage && "relative overflow-hidden pt-5"
       )}
     >
-      {isPackage && (
-        <div className="absolute top-0 right-0 bg-gradient-to-l from-primary to-neon-pink px-3 py-1 text-xs font-bold rounded-bl-lg">
-          <Star className="inline-block w-3 h-3 mr-1" />
-          ПАКЕТ
-        </div>
-      )}
-      
       <div className="flex items-start justify-between gap-4">
         <div className="flex-1 min-w-0">
           <h3 className={cn(
@@ -59,12 +52,22 @@ export function TariffCard({
           )}
           
           <div className="flex items-center gap-2 mt-2 text-sm text-muted-foreground">
-            <Clock className="w-4 h-4 text-secondary" />
+            <Clock className="w-4 h-4 text-primary" />
             <span>{formatDuration(durationMinutes)}</span>
           </div>
         </div>
         
-        <div className="flex flex-col items-end">
+        <div className="flex flex-col items-end justify-between pt-1 pb-1 pr-1">
+          {isPackage && (
+            <div className="mb-1 flex items-center justify-center">
+              <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full border border-primary/60 bg-primary/10 shadow-[0_0_8px_rgba(35,35,255,0.35)]">
+                <Star className="w-2.5 h-2.5 text-primary" />
+                <span className="text-[10px] font-semibold tracking-wide text-primary">
+                  ПАКЕТ
+                </span>
+              </div>
+            </div>
+          )}
           <span className="price-tag">{formatPrice(price)}</span>
           {!isPackage && durationMinutes >= 60 && (
             <span className="text-xs text-muted-foreground">
