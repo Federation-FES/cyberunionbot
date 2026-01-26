@@ -24,11 +24,11 @@ export function Header({ title = "CyberUnion", subtitle }: HeaderProps) {
  <div className="flex items-center justify-between" style={{ paddingLeft: '15px', paddingTop: '15px', paddingRight: '16px', paddingBottom: '12px' }}>
  <div className="flex items-center gap-3">
  {/* Логотип */}
- <img 
-   src="/Frame_1-removebg-preview (1) 1.svg" 
-   alt="CyberUnion Logo" 
-   className="h-12 w-12 flex-shrink-0"
- />
+        <img 
+          src="/logo.svg" 
+          alt="CyberUnion Logo" 
+          className="h-12 w-12 flex-shrink-0"
+        />
  <div>
  <h1 className="text-lg font-bold text-foreground leading-tight">{title}</h1>
  <p className="text-sm text-muted-foreground leading-tight">Компьютерный клуб</p>
