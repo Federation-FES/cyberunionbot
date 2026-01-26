@@ -1,0 +1,233 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Gaming Club Design System - Cyber/Neon Theme */
+
+@layer base {
+ :root {
+ /* Dark cyber gaming theme by default */
+ --background: 230 25% 7%;
+ --foreground: 210 40% 98%;
+
+ --card: 230 25% 10%;
+ --card-foreground: 210 40% 98%;
+
+ --popover: 230 25% 12%;
+ --popover-foreground: 210 40% 98%;
+
+ /* Blue primary */
+ --primary: 240 100% 57%;
+ --primary-foreground: 210 40% 98%;
+
+ /* Cyan accent */
+ --secondary: 180 80% 50%;
+ --secondary-foreground: 230 25% 7%;
+
+ --muted: 230 20% 18%;
+ --muted-foreground: 215 20% 65%;
+
+ /* Neon green accent */
+ --accent: 140 70% 50%;
+ --accent-foreground: 230 25% 7%;
+
+ --destructive: 0 70% 55%;
+ --destructive-foreground: 210 40% 98%;
+
+ --border: 230 20% 20%;
+ --input: 230 20% 15%;
+ --ring: 240 100% 57%;
+
+ --radius: 0.75rem;
+
+ /* Gaming specific colors */
+ --neon-purple: 240 100% 57%;
+ --neon-cyan: 180 80% 50%;
+ --neon-green: 140 70% 50%;
+ --neon-pink: 240 100% 57%;
+ --neon-orange: 25 90% 55%;
+ 
+ /* Gradients */
+ --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary)));
+ --gradient-secondary: linear-gradient(135deg, hsl(180 80% 50%), hsl(140 70% 50%));
+ --gradient-card: linear-gradient(180deg, hsl(230 25% 12%), hsl(230 25% 8%));
+ 
+ /* Shadows */
+ --shadow-neon: 0 0 20px hsl(var(--primary) / 0.3);
+ --shadow-glow: 0 0 40px hsl(var(--primary) / 0.2);
+
+ --sidebar-background: 230 25% 8%;
+ --sidebar-foreground: 210 40% 98%;
+ --sidebar-primary: 240 100% 57%;
+ --sidebar-primary-foreground: 210 40% 98%;
+ --sidebar-accent: 230 20% 15%;
+ --sidebar-accent-foreground: 210 40% 98%;
+ --sidebar-border: 230 20% 20%;
+ --sidebar-ring: 240 100% 57%;
+
+ /* Success/Warning/Info */
+ --success: 140 70% 50%;
+ --success-foreground: 230 25% 7%;
+ --warning: 45 90% 55%;
+ --warning-foreground: 230 25% 7%;
+ --info: 200 80% 55%;
+ --info-foreground: 210 40% 98%;
+ }
+
+ /* Light theme for admin panel */
+ .light {
+ --background: 0 0% 98%;
+ --foreground: 230 25% 10%;
+
+ --card: 0 0% 100%;
+ --card-foreground: 230 25% 10%;
+
+ --popover: 0 0% 100%;
+ --popover-foreground: 230 25% 10%;
+
+ --primary: 270 70% 50%;
+ --primary-foreground: 210 40% 98%;
+
+ --secondary: 230 15% 92%;
+ --secondary-foreground: 230 25% 10%;
+
+ --muted: 230 15% 95%;
+ --muted-foreground: 230 15% 40%;
+
+ --accent: 270 60% 95%;
+ --accent-foreground: 270 70% 40%;
+
+ --destructive: 0 70% 55%;
+ --destructive-foreground: 210 40% 98%;
+
+ --border: 230 15% 88%;
+ --input: 230 15% 88%;
+ --ring: 270 70% 50%;
+ }
+}
+
+@layer base {
+ * {
+ @apply border-border;
+ }
+
+ body {
+ @apply bg-background text-foreground antialiased;
+ font-family: 'Inter', system-ui, -apple-system, sans-serif;
+ }
+
+ /* Telegram Mini App specific */
+ .tg-app {
+ min-height: 100vh;
+ min-height: 100dvh;
+ overflow-x: hidden;
+ }
+}
+
+@layer components {
+ /* Neon glow effects */
+ .neon-border {
+ @apply border border-primary/50;
+ box-shadow: 0 0 10px hsl(var(--primary) / 0.3), inset 0 0 10px hsl(var(--primary) / 0.1);
+ }
+
+ .neon-text {
+ text-shadow: 0 0 10px hsl(var(--primary) / 0.5), 0 0 20px hsl(var(--primary) / 0.3);
+ }
+
+ .neon-glow {
+ box-shadow: 0 0 20px hsl(var(--primary) / 0.4), 0 0 40px hsl(var(--primary) / 0.2);
+ }
+
+ /* Gaming card styles */
+ .gaming-card {
+ @apply bg-card rounded-xl border border-border/50 backdrop-blur-sm;
+ background: linear-gradient(180deg, hsl(var(--card)) 0%, hsl(230 25% 8%) 100%);
+ }
+
+ .gaming-card-hover {
+ @apply gaming-card transition-all duration-300;
+ }
+
+ .gaming-card-hover:hover {
+ @apply border-primary/50;
+ box-shadow: 0 0 20px hsl(var(--primary) / 0.3), 0 0 40px hsl(var(--primary) / 0.1);
+ transform: translateY(-2px) scale(1.01);
+ }
+
+ /* Gradient buttons */
+ .btn-gradient-primary {
+ @apply text-primary-foreground font-semibold rounded-lg px-6 py-3 transition-all duration-300;
+ background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary)));
+ }
+
+ .btn-gradient-primary:hover {
+ box-shadow: 0 0 25px hsl(var(--primary) / 0.5);
+ transform: translateY(-1px);
+ }
+
+ .btn-gradient-secondary {
+ @apply text-secondary-foreground font-semibold rounded-lg px-6 py-3 transition-all duration-300;
+ background: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--accent)));
+ }
+
+ /* Status badges */
+ .status-available {
+ @apply bg-success/20 text-success border border-success/30;
+ }
+
+ .status-occupied {
+ @apply bg-destructive/20 text-destructive border border-destructive/30;
+ }
+
+ .status-maintenance {
+ @apply bg-warning/20 text-warning border border-warning/30;
+ }
+
+ /* Price display */
+ .price-tag {
+ @apply text-2xl font-bold;
+ color: hsl(var(--primary));
+ }
+}
+
+@layer utilities {
+ /* Telegram safe area */
+ .safe-area-top {
+ padding-top: env(safe-area-inset-top, 0px);
+ }
+
+ .safe-area-bottom {
+ padding-bottom: env(safe-area-inset-bottom, 0px);
+ }
+
+ /* Gradient backgrounds */
+ .bg-gradient-gaming {
+ background: linear-gradient(180deg, hsl(230 25% 10%) 0%, hsl(230 25% 5%) 100%);
+ }
+
+ .bg-gradient-card {
+ background: linear-gradient(180deg, hsl(var(--card)) 0%, hsl(230 25% 8%) 100%);
+ }
+
+ /* Animated gradient */
+ .animate-gradient {
+ background-size: 200% 200%;
+ animation: gradient-shift 3s ease infinite;
+ }
+
+ @keyframes gradient-shift {
+ 0%, 100% { background-position: 0% 50%; }
+ 50% { background-position: 100% 50%; }
+ }
+
+ /* Pulse glow */
+ .animate-pulse-glow {
+ animation: pulse-glow 2s ease-in-out infinite;
+ }
+
+ @keyframes pulse-glow {
+ 0%, 100% { box-shadow: 0 0 10px hsl(var(--primary) / 0.3); }
+ 50% { box-shadow: 0 0 25px hsl(var(--primary) / 0.5); }
+ }
+}
